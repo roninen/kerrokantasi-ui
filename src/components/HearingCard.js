@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 import FormatRelativeTime from '../utils/FormatRelativeTime';
-import Icon from '../utils/Icon';
 import LabelList from './LabelList';
 import getAttr from '../utils/getAttr';
 import {getHearingURL, getHearingMainImageURL} from '../utils/hearing';
@@ -23,7 +22,12 @@ const HearingCard = ({hearing, language, className = ''}) => {
       sv: 'Hörandet tillgängligt på svenska',
       en: 'Questionnaire available in English'};
   const commentCount = (hearing.n_comments ? (<div className="hearing-card-comment-count">
-    <Icon name="comment-o"/>&nbsp;{hearing.n_comments}
+    {/* FIXME: Make svg icon into a component */}
+    <svg className="icon">
+      <title>Kommentteja</title>
+      <use xlinkHref="/assets/images/hel-icons.svg#commenting-o"/>
+    </svg>
+    &nbsp;{hearing.n_comments}
   </div>) : null);
   return (
     <div className={`hearing-card ${className}`}>
