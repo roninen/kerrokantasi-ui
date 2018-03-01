@@ -8,7 +8,7 @@ function renderHTMLSkeleton(req, res, settings) {
     <Html
       bundleSrc={settings.bundleSrc || '/app.js'}
       apiBaseUrl={settings.kerrokantasi_api_base}
-      uiConfig={settings.uiConfig}
+      uiConfig={settings.ui_config}
     />
   );
   res.status(200).send(html);
