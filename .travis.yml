@@ -17,6 +17,7 @@ cache:
 
 before_install:
   - npm i -g npm@latest
+  - yarn
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 script:
