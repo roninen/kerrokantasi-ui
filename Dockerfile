@@ -2,7 +2,9 @@ FROM node:alpine
 
 # At this stage everything might be useful
 
-COPY .
+WORKDIR /app
+
+COPY . /app
 
 EXPOSE 8086
 
