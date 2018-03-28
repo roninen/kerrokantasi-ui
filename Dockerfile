@@ -1,5 +1,7 @@
 FROM node:alpine
 
+# At this stage everything might be useful
+
 COPY .
 
 EXPOSE 8086
