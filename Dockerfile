@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:8
 
 # At this stage everything might be useful
 
