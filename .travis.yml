@@ -3,10 +3,6 @@ sudo: required
 
 install: true
 
-env:
-    global:
-        - COMMIT=${TRAVIS_COMMIT::6}
-
 services:
   - docker
 
@@ -25,13 +21,9 @@ before_install:
   - docker --version
   - docker build -t kerrokantasi-ui .
 
-#script:
-#  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run lint"
-#  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run test:cov"
-
-# remove testing code temporarily for testing build
 script:
-  - true
+  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run lint"
+  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run test:cov"
 
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
