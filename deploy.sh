@@ -9,7 +9,7 @@ fi
 export REPO="roninen/kerrokantasi-ui"
 
 # Escape slashes in branch names
-export BRANCH=${TRAVIS_BRANCH//\/_}
+export BRANCH=${TRAVIS_BRANCH//\//_}
 
 if [ "$TRAVIS_BRANCH" == "master" ] ; then
     echo "Tagging master"
