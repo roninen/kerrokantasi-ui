@@ -16,6 +16,7 @@ if [ "$TRAVIS_BRANCH" == "master" ] ; then
     docker tag kerrokantasi-ui "$REPO:$COMMIT"
     docker tag "$REPO:$COMMIT" $REPO:latest
     docker push "$REPO:$COMMIT"
+    docker push "$REPO:latest"
 fi
 
 if [ "$TRAVIS_BRANCH" != "master" ] ; then
@@ -24,5 +25,7 @@ if [ "$TRAVIS_BRANCH" != "master" ] ; then
     docker tag "$REPO:$COMMIT" "$REPO:$BRANCH"
     docker tag "$REPO:$COMMIT" "$REPO:travis-$TRAVIS_BUILD_NUMBER"
     docker push "$REPO:$COMMIT"
+    docker push "$REPO:travis-$TRAVIS_BUILD_NUMBER"
+    docker push "$REPO:$BRANCH"
 fi
 
