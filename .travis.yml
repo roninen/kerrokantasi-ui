@@ -18,14 +18,14 @@ cache:
 before_install:
   - npm i -g npm@latest
   - yarn
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-
-script:
-  - npm run lint
-  - npm run test:cov
-
-after_success:
   - docker --version
   - docker build -t kerrokantasi-ui .
+
+script:
+  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run lint"
+  - docker run --rm kerrokantasi-ui /bin/bash -c "npm run test:cov"
+
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker tag kerrokantasi-ui roninen/kerrokantasi-ui:latest
   - docker push roninen/kerrokantasi-ui:latest
