@@ -27,5 +27,4 @@ script:
 
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker tag kerrokantasi-ui roninen/kerrokantasi-ui:latest
-  - docker push roninen/kerrokantasi-ui:latest
+  - ./deploy.sh
