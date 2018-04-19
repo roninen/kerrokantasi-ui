@@ -9,7 +9,8 @@ services:
 language: node_js
 
 node_js:
-  - "lts/carbon"
+  - "lts/*"
+  - "node"
 
 cache:
   directories:
