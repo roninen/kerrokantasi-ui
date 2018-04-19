@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+
+if [ "$TRAVIS_NODE_VERSION" != "lts/*" ]; then
+    echo "Only deploy on production node build"
+    exit 0
+fi
+
 export REPO="roninen/kerrokantasi-ui"
 
 # First 7 chars of commit hash
